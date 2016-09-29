@@ -1,0 +1,246 @@
+#login{
+	
+	margin: 0px;
+	background: #000;
+	background-image:url(../img/fundo3.jpg);
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-size:100% 100%;
+
+}
+
+#cabecalho{
+
+	width: 100%;
+	height: 50px;
+	background: rgba(0,0,0,.70);
+
+}
+
+#logo{
+
+	height: 40px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+
+}
+
+#conteudo{
+
+	width: 100%;
+	height: 200px;
+	text-align: center;
+
+}
+
+#conteudo h1{
+
+	color: #fff;
+	font-family: Calibri Light;
+	font-weight: 100;
+	font-size: 75px;
+	margin-top: 50px;
+
+}
+
+#conteudo hr{
+
+	width: 50%;
+	height: 2px;
+	background: #fff;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border: 0;
+	margin-top: -50px;
+	margin-bottom: 50px;
+
+}
+
+#txtUsuario, #txtSenha{
+
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	width: calc(50% - 20px);
+	height: 40px;
+	background: transparent;
+	border: 2px solid #fff;
+	font-size: 26px;
+	padding-left: 20px;
+	color: #fff;
+	font-family: Helvetica;	
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px; 
+	margin-bottom: 20px;
+	outline: none;
+
+}
+
+#txtUsuario:hover, #txtSenha:hover{
+
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	
+	border-color: #d29900;
+}
+
+#txtUsuario:focus, #txtSenha:focus{
+
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	
+	border-color: #d29900;
+}
+
+#btnEntrar{
+
+    -webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	
+	width: 14%;
+	height: 45px;
+	background: #fff;
+	text-align: center;
+	color: #d29900;
+	font-size: 24px;
+	font-family: Times New Roman;
+	font-weight: 100;
+	font-style: italic;
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	border: 0;
+
+}
+
+#btnEntrar:hover{
+
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	
+	background: #d29900;
+	color: #fff;
+
+}
+
+#rodape{
+
+	position: absolute;
+	width: 100%;
+	height: 80px;
+	bottom: 0;
+	background: rgba(255,255,255,.90);
+
+}
+
+#rodape hr{
+
+	width: 95%;
+	height: 1px;
+	background: #242424;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border: 0;
+
+}
+
+#oficial{
+
+	float: left;
+	margin-left: 30px;
+	width: 100px;
+
+}
+
+/*Home*/
+
+#home{
+	
+	margin: 0px;
+	background: #000;
+	background-image:url(../img/fundo3B.jpg);
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-size:100% 100%;
+}
+
+#conteudoH{
+
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+}
+
+#cabecalhoH{
+
+	width: 100%;
+	height: 50px;
+	background: rgba(0,0,0,.70);
+	z-index: 100;
+
+}
+
+#itens{
+
+	width: 100%;
+	height: calc(100% - 50px); 
+	display: inline-block;
+
+}
+
+#grades{
+	width: 33.33%;
+	height: 100%;
+	float: left;
+}
+
+#drive{
+	width: 33.33%;
+	height: 100%;
+	float: left;
+}
+
+#health{
+	width: 33.33%;
+	height: 100%;
+	float: right;
+}
+
+#gradesIcon, #driveIcon, #healthIcon{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+
+	width: 40%;
+	margin-left: 30%;
+	margin-top: calc(30% + 50px);
+}
+
+#gradesIcon:hover, #driveIcon:hover, #healthIcon:hover{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+
+	width: 60%;
+	margin-left: 20%;
+	margin-top: calc(20% + 50px);
+}
+
+#gradesIcon:active, #driveIcon:active, #healthIcon:active{
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+
+	 filter: -ms-brightness(50%);
+     filter: -moz-brightness(50%);
+     filter: -webkit-brightness(50%);
+     filter: brightness(50%);
+}
+
+#grades h3, #drive h3, #health h3{
+
+	font-size: 18px;
+	text-align: center;
+	font-family: "Helvetica";
+	font-weight: 100;
+	color: #fff;
+
+}

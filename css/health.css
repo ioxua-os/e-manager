@@ -1,0 +1,90 @@
+body{
+
+	margin: 0;
+	background: #e9e9e9;
+
+}
+
+#conteudo{
+
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+}
+
+#cabecalho{
+
+	width: 100%;
+	height: 50px;
+	background: #eb073d;
+
+}
+
+#logo{
+
+	height: 40px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+
+}
+
+#add{
+
+
+	width: 30px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+
+}
+
+::-webkit-input-placeholder {
+   color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+:-ms-input-placeholder {  
+   color: #fff;  
+}
+
+#txtPesquisa{
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	width: 400px;
+	height: 30px;
+	background: #b6b6b6;
+	border: 0px;
+	font-size: 16px;
+	padding-left: 20px;
+	color: #fff;
+	text-align: center;
+	font-family: Helvetica;
+	font-weight: lighter;	
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	margin-top: 20px;
+	margin-left: calc(50% - 200px);
+	outline: none;
+}
+
+#txtPesquisa:focus{
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	box-shadow: -1px -1px 1px #eb073d, 1px 1px 1px #eb073d;
+    -webkit-box-shadow: -1px -1px 1px #eb073d, 1px 1px 1px #eb073d;
+    -moz-box-shadow: -1px -1px 1px #eb073d, 1px 1px 1px #eb073d;
+    border: 1px solid #eb073d;
+
+    text-align: left;
+}
