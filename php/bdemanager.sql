@@ -63,7 +63,7 @@ CREATE TABLE `tbusuario` (
 --
 ALTER TABLE `bdtipousuario`
   ADD PRIMARY KEY (`codtipousuario`),
-  ADD UNIQUE KEY `codtipousuario` (`codtipousuario`);
+  --ADD UNIQUE KEY `codtipousuario` (`codtipousuario`);
 
 --
 -- Indexes for table `tbusuario`

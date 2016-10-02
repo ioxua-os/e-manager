@@ -1,10 +1,10 @@
 <?php
+    include('conf.php');
     function abrirConexao(){
-        $servidor='localhost';
-        $usuario='root';
-        $senha='';
-        $conn = mysqli_connect($servidor, $usuario, $senha) or die ("ERRO: Conexão falhou.");
-        mysqli_select_db($conn, 'bdemanager') or die ("ERRO: Não selecionou o banco de dados.");
+        $conn = mysqli_connect(Configuracoes::NOME_SERVIDOR, Configuracoes::USUARIO_SERVIDOR, Configuracoes::SENHA_SERVIDOR)
+            or die ("ERRO: Conexão falhou.");
+
+        mysqli_select_db($conn, Configuracoes::NOME_BANCO) or die ("ERRO: Banco de dados não selecionado.");
         return $conn;
     }
     function fecharConexao($conn){

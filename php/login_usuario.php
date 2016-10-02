@@ -2,7 +2,7 @@
 	$usuario = $_POST['loginUsuario'];
 	$senha = $_POST['senhaUsuario'];
 
-	include('conexao_banco.php');
+	require 'conexao_banco.php';
 	$conn = abrirConexao();
 
 	$sql = "SELECT * FROM tbusuario WHERE loginusuario = '". $usuario. "' AND senhausuario = '". $senha. "'";
@@ -15,6 +15,7 @@
 	else {
 		session_start();
 		$_SESSION['codusuario'] = $resultado['codusuario'];
+		$_SESSION['loginusuario'] = $resultado['loginusuario'];
 		echo json_encode( array('sucesso' => 'true') );
 		//header("Location:../home.html");
 	}	
