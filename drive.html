@@ -13,19 +13,50 @@
 
 	<body id="home">
 
-	<div id="conteudo">
+		<div id="conteudo">
 
-		<div id="cabecalho">
+			<div id="cabecalho">
 
-			<img src="img/logoLetra.png" id="logo"/>
+				<img src="img/logoLetra.png" id="logo"/>
 
-			<a href=""><img src="img/btnPlus.png" id="add"></a>
+				<a href=""><img src="img/btnPlus.png" id="add"></a>
 
-		</div>	
+			</div>	
 
-		<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
+			<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
 
-	</div>
+			<!-- TODO COMO CARALHOS VMS MOSTRAR OS COISOS? -->
+			<table id='lista-arquivos'><!-- ARQUIVOS -->
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Data</th>
+						<th>Tamanho</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<!--<tfoot>
+					<tr>
+						<th>Nome</th>
+						<th>Data</th>
+						<th>Tamanho</th>
+						<th>Ações</th>
+					</tr>
+				</tfoot>-->
+				<tbody>
+					<tr class='arquivo'>
+						<td class='nome-arquivo'>Teste</td><!-- :before img_arquivo -->
+						<td class='data-arquivo'>25/01/2016</td>
+						<td class='tamanho-arquivo'>50MB</td>
+						<td class='controles-arquivo'>
+							<span class='baixar'></span>
+							<span class='apagar'></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
 
 	</body>
 
