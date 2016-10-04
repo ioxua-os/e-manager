@@ -5,9 +5,21 @@
 	<head>
 
 		<link rel="stylesheet" type="text/css" href="css/drive.css">
+		<link rel="stylesheet" type="text/css" href="lib/jQueryFileTree.min.css">
+
 		<link rel="shortcut icon" href="img/icone.png" >
 
+		<!-- https://github.com/jqueryfiletree/jqueryfiletree -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/jQueryFileTree.min.js"></script>
+
 		<title>Etec drive</title>
+
+		<script>
+			$(document).ready( function() {
+
+			} );
+		</script>
 
 	</head>
 
@@ -25,7 +37,7 @@
 
 			<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
 
-			<!-- TODO COMO CARALHOS VMS MOSTRAR OS COISOS? -->
+			<!-- TODO COMO CARVALHOS VMS MOSTRAR OS COISOS? -->
 			<table id='lista-arquivos'><!-- ARQUIVOS -->
 				<thead>
 					<tr>
