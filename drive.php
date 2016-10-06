@@ -23,13 +23,13 @@
 		<script>
 			$(document).ready( function() {
 				$("#lista-arquivos").fileTree({
-					root: '/ETECDrive/arquivos-upload/'<?php print $_SESSION['loginusuario']. '/' ?>,
+					root: '<?php print "/ETECDrive/arquivos-upload/". $_SESSION['loginusuario']. "/" ?>',
 					script: 'lib/connectors/jqueryFileTree.php',
 					loadMessage: 'Carregando..',
 					multiFolder: false
 				},
 				function(arquivo) {
-					colsole.log("CLICOU EM " + arquivo);
+					console.log("CLICOU EM " + arquivo);
 				});
 			} );
 		</script>

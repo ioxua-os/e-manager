@@ -7,11 +7,8 @@
 			LOCAL_DE_USO = 'SP',
 			DIRETORIO_UPLOAD_BASE = '../arquivos-upload/';
 
-		if(date_default_timezone_get() != $timezones[self::LOCAL_DE_USO])
-			date_default_timezone_set($timezones[self::LOCAL_DE_USO]);
-
 		// UTILITY VARIABLES
-		$timezones = array(
+		const TIMEZONES = array(
 			'AC' => 'America/Rio_branco',   'AL' => 'America/Maceio',
 			'AP' => 'America/Belem',        'AM' => 'America/Manaus',
 			'BA' => 'America/Bahia',        'CE' => 'America/Fortaleza',
@@ -28,3 +25,7 @@
 			'TO' => 'America/Araguaia',    
 		);
 	}
+
+	$timezones = Configuracoes::TIMEZONES;
+	if(date_default_timezone_get() != $timezones[Configuracoes::LOCAL_DE_USO])
+		date_default_timezone_set($timezones[Configuracoes::LOCAL_DE_USO]);

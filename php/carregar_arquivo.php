@@ -1,5 +1,4 @@
 <?php
-
 	function reArrayFiles(&$file_post) { // http://php.net/manual/pt_BR/features.file-upload.multiple.php
 	    $file_ary = array();
 	    $file_count = count($file_post['name']);
@@ -36,10 +35,13 @@
 	if(isset($_FILES[$nomeInput])) {
 		session_start();
 
-		$arquivos = reArrayFiles($_FILES['$nomeInput']);
+		//$arquivos = $_FILES[$nomeInput];//reArrayFiles($_FILES['$nomeInput']);
+		$arquivo = $_FILES[$nomeInput];//reArrayFiles($_FILES['$nomeInput']);
 
-		foreach($arquivos as $arquivo) {
-			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE + $_SESSION['loginusuario'] + '/';
+		//foreach($arquivos as $arquivo) {
+			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE. $_SESSION['loginusuario']. '/';
+			if(!is_dir($dir))
+				mkdir($dir, 0777, true);
 
 			if($arquivo['error'] == 0) {
 				$data = date('d.m.Y-H.i.s'); // POSSUI EXATOS 19 DE TAMANHO!
@@ -51,7 +53,7 @@
 			}
 			else
 				echo json_encode( array( 'sucesso' => 'false', 'mensagem' => getMsgErro( $arquivo['error'] ) ) );
-		}
+		//}
 	}
 	else
 		echo json_encode( array('sucesso' => 'false', 'mensagem' => 'Nenhum arquivo selecionado!') );

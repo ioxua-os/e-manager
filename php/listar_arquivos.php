@@ -37,7 +37,7 @@
 		if($arquivo != '.' && $arquivo != '..') {
 			$nomeArquivo = $caminho. $arquivo;
 			$tamanho = filesize($nomeArquivo);
-			$partes = explode($arquivo, '_', 2);
+			$partes = explode('_', $arquivo, 2);
 			$data = $partes[0];
 			$nomeOriginal = $partes[1];
 			$extensao = getExtensao($arquivo);
