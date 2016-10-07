@@ -38,6 +38,10 @@
 			<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
 
 			<!-- TODO COMO CARVALHOS VMS MOSTRAR OS COISOS? -->
+			<form action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
+				<input type="file" name="fileUpload">
+				<input type="submit" value="Enviar">
+			</form>
 			<table id='lista-arquivos'><!-- ARQUIVOS -->
 				<thead>
 					<tr>

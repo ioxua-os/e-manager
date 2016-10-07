@@ -7,8 +7,6 @@
 			LOCAL_DE_USO = 'SP',
 			DIRETORIO_UPLOAD_BASE = '../arquivos-upload/';
 
-		if(date_default_timezone_get() != $timezones[self::LOCAL_DE_USO])
-			date_default_timezone_set($timezones[self::LOCAL_DE_USO]);
 
 		// UTILITY VARIABLES
 		$timezones = array(
@@ -28,3 +26,6 @@
 			'TO' => 'America/Araguaia',    
 		);
 	}
+
+	if(date_default_timezone_get() != $timezones[Configuracoes::LOCAL_DE_USO])
+		date_default_timezone_set($timezones[Configuracoes::LOCAL_DE_USO]);

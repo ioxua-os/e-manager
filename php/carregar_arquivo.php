@@ -1,5 +1,4 @@
 <?php
-
 	function reArrayFiles(&$file_post) { // http://php.net/manual/pt_BR/features.file-upload.multiple.php
 	    $file_ary = array();
 	    $file_count = count($file_post['name']);
@@ -39,7 +38,7 @@
 		$arquivos = reArrayFiles($_FILES['$nomeInput']);
 
 		foreach($arquivos as $arquivo) {
-			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE + $_SESSION['loginusuario'] + '/';
+			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE + 'ioxua/';//$_SESSION['loginusuario'] + '/';
 
 			if($arquivo['error'] == 0) {
 				$data = date('d.m.Y-H.i.s'); // POSSUI EXATOS 19 DE TAMANHO!
