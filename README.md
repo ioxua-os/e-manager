@@ -4,3 +4,4 @@ A little school project trying to help the internal management of _ETEC de Guaia
 ##Main Contributors
 - [@ioxua-os](github.com/ioxua-os) (Yehoshua Oliveira)
 - [@pastoreli](github.com/pastoreli) (Igor Pastoreli)
+- [@everiscimo](github.com/everiscimo) (Erico Veriscimo)
