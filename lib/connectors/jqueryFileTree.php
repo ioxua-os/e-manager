@@ -55,8 +55,12 @@ if( file_exists($postDir) ) {
 			if( file_exists($postDir . $file) && $file != '.' && $file != '..' ) {
 				if( is_dir($postDir . $file) && (!$onlyFiles || $onlyFolders) )
 					echo "<li class='directory collapsed'>{$checkbox}<a rel='" .$htmlRel. "/'>" . $htmlName . "</a></li>";
-				else if (!$onlyFolders || $onlyFiles)
-					echo "<li class='file ext_{$ext}'>{$checkbox}<a rel='" . $htmlRel . "'>" . $htmlName . "</a></li>";
+				else if (!$onlyFolders || $onlyFiles) {
+					$parts = explode('_', $htmlName, 2);
+					$date = $parts[0];
+					$name = $parts[1];
+					echo "<li class='file ext_{$ext}'>{$checkbox}<a rel='" . $htmlRel . "'>" . $name . "</a></li>";
+				}
 			}
 		}
 

@@ -23,13 +23,13 @@
 		<script>
 			$(document).ready( function() {
 				$("#lista-arquivos").fileTree({
-					root: '/ETECDrive/arquivos-upload/'<?php print $_SESSION['loginusuario']. '/' ?>,
+					root: '<?php print "/ETECDrive/arquivos-upload/". $_SESSION['loginusuario']. "/" ?>',
 					script: 'lib/connectors/jqueryFileTree.php',
 					loadMessage: 'Carregando..',
 					multiFolder: false
 				},
 				function(arquivo) {
-					colsole.log("CLICOU EM " + arquivo);
+					console.log("CLICOU EM " + arquivo);
 				});
 			} );
 		</script>
@@ -55,42 +55,10 @@
 				<input type="file" name="fileUpload">
 				<input type="submit" value="Enviar">
 			</form>
-<<<<<<< HEAD
-			<table id='lista-arquivos'><!-- ARQUIVOS -->
-				<thead>
-					<tr>
-						<th>Nome</th>
-						<th>Data</th>
-						<th>Tamanho</th>
-						<th>Ações</th>
-					</tr>
-				</thead>
-				<!--<tfoot>
-					<tr>
-						<th>Nome</th>
-						<th>Data</th>
-						<th>Tamanho</th>
-						<th>Ações</th>
-					</tr>
-				</tfoot>-->
-				<tbody>
-					<tr class='arquivo'>
-						<td class='nome-arquivo'>Teste</td><!-- :before img_arquivo -->
-						<td class='data-arquivo'>25/01/2016</td>
-						<td class='tamanho-arquivo'>50MB</td>
-						<td class='controles-arquivo'>
-							<span class='baixar'></span>
-							<span class='apagar'></span>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-=======
 
 			<div id='lista-arquivos'>
 				
 			</div>
->>>>>>> 1bde2c9dc5fd6f59b84791e07578f5ab56b9ab2a
 
 		</div>
 

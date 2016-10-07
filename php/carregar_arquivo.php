@@ -35,10 +35,18 @@
 	if(isset($_FILES[$nomeInput])) {
 		session_start();
 
-		$arquivos = reArrayFiles($_FILES['$nomeInput']);
+		//$arquivos = $_FILES[$nomeInput];//reArrayFiles($_FILES['$nomeInput']);
+		$arquivo = $_FILES[$nomeInput];//reArrayFiles($_FILES['$nomeInput']);
 
+<<<<<<< HEAD
 		foreach($arquivos as $arquivo) {
 			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE + 'ioxua/';//$_SESSION['loginusuario'] + '/';
+=======
+		//foreach($arquivos as $arquivo) {
+			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE. $_SESSION['loginusuario']. '/';
+			if(!is_dir($dir))
+				mkdir($dir, 0777, true);
+>>>>>>> 1bde2c9dc5fd6f59b84791e07578f5ab56b9ab2a
 
 			if($arquivo['error'] == 0) {
 				$data = date('d.m.Y-H.i.s'); // POSSUI EXATOS 19 DE TAMANHO!
@@ -50,7 +58,7 @@
 			}
 			else
 				echo json_encode( array( 'sucesso' => 'false', 'mensagem' => getMsgErro( $arquivo['error'] ) ) );
-		}
+		//}
 	}
 	else
 		echo json_encode( array('sucesso' => 'false', 'mensagem' => 'Nenhum arquivo selecionado!') );
