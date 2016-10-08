@@ -8,7 +8,54 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="shortcut icon" href="img/icone.png" >
 
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 		<title>Etec drive</title>
+
+		<script>
+			$(document).ready( function() {
+				$("form[name=login]").submit(function(evt) {
+
+					var usuario = $("input[name=usuario]").val(),
+						senha = $("input[name=senha]").val();
+
+					if(usuario == ""){
+						console.log("USER VAZIO");
+						return false;
+					}
+					else if(senha == ""){
+						console.log("SENHA VAZIA");
+						return false;
+					}
+
+					var data = {
+						usuario: usuario,
+						senha: senha
+					};
+
+					$.ajax({
+						type: 'POST',
+						url: 'php/login_usuario.php',
+						data: data,
+						dataType: 'json',
+						encode: true
+					})
+					.done(function(retorno) {
+						console.log(retorno);
+						if(retorno.sucesso == true)
+							window.location = 'drive.php';
+						else
+							console.log("MENSAGEM: " + retorno.mensagem);
+					})
+					.fail(function(detalhes) {
+						console.log("MENSAGEM: " + detalhes.mensagem);
+					});
+
+					evt.preventDefault();
+				});
+
+			} );
+		</script>
 
 	</head>
 
@@ -26,7 +73,7 @@
 
 			<hr/>
 
-			<center><form name='login' action='home.html' method='post'> 
+			<center><form name='login' method='post'> 
            	      
 				<input name='usuario' type='text' placeholder='Usuário' id='txtUsuario' />
         		</br>

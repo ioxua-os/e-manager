@@ -5,7 +5,8 @@
 			SENHA_SERVIDOR = '',
 			NOME_BANCO = 'bdemanager',
 			LOCAL_DE_USO = 'SP',
-			DIRETORIO_UPLOAD_BASE = '../arquivos-upload/';
+			DIRETORIO_UPLOAD_BASE = '../arquivos-upload/',
+			CRIPTOGRAFIA = ''; // http://www.php.net/manual/en/function.hash.php
 
 		// UTILITY VARIABLES
 		const TIMEZONES = array(
@@ -24,9 +25,15 @@
 			'SE' => 'America/Maceio',       'SP' => 'America/Sao_Paulo',
 			'TO' => 'America/Araguaia',    
 		);
+
+		public static function criptografar($valor) {
+			if(self::CRIPTOGRAFIA === '')
+				return $valor;
+			return hash(self::CRIPTOGRAFIA, $valor);
+		} 
 	}
 
 	$timezones = Configuracoes::TIMEZONES;
-	
+
 	if(date_default_timezone_get() != $timezones[Configuracoes::LOCAL_DE_USO])
 		date_default_timezone_set($timezones[Configuracoes::LOCAL_DE_USO]);

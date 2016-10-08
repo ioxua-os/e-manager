@@ -4,7 +4,6 @@
 
 	<?php 
 		session_start();
-		$_SESSION['loginusuario'] = 'yoshi';
 
 		include 'php/conf.php';
 	?>

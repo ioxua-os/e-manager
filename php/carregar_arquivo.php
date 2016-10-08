@@ -42,7 +42,6 @@
 			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE. $_SESSION['loginusuario']. '/';
 
 		//foreach($arquivos as $arquivo) {
-			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE. $_SESSION['loginusuario']. '/';
 			if(!is_dir($dir))
 				mkdir($dir, 0777, true);
 
@@ -54,7 +53,9 @@
 
 				move_uploaded_file($arquivo['tmp_name'], $dir. $novoNome);
 
-				header("Location:../drive.php");
+				echo Configuracoes::criptografar('admin');
+
+				//header("Location:../drive.php");
 			}
 			else
 				echo json_encode( array( 'sucesso' => 'false', 'mensagem' => getMsgErro( $arquivo['error'] ) ) );

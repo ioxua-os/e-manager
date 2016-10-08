@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02-Out-2016 às 02:38
+-- Generation Time: 08-Out-2016 às 03:55
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -55,6 +55,13 @@ CREATE TABLE `tbusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Extraindo dados da tabela `tbusuario`
+--
+
+INSERT INTO `tbusuario` (`codusuario`, `loginusuario`, `senhausuario`, `totalarmazenado`, `codtipousuario`) VALUES
+(1, 'admin', 'admin', 0, 2);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -63,7 +70,7 @@ CREATE TABLE `tbusuario` (
 --
 ALTER TABLE `bdtipousuario`
   ADD PRIMARY KEY (`codtipousuario`),
-  --ADD UNIQUE KEY `codtipousuario` (`codtipousuario`);
+  ADD UNIQUE KEY `codtipousuario` (`codtipousuario`);
 
 --
 -- Indexes for table `tbusuario`
@@ -84,7 +91,7 @@ ALTER TABLE `bdtipousuario`
 -- AUTO_INCREMENT for table `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `codusuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
