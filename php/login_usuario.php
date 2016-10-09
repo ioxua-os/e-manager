@@ -1,5 +1,4 @@
 <?php
-	require 'conf.php';
 	require 'conexao_banco.php';
 
 	session_start();

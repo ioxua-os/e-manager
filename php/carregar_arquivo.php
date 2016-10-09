@@ -54,9 +54,9 @@
 
 				//echo Configuracoes::criptografar('admin');
 
-				echo json_encode( array('sucesso' => true) )
+				//echo json_encode( array('sucesso' => true) );
 
-				//header("Location:../drive.php");
+				header("Location:../drive.php");
 			}
 			else
 				echo json_encode( array( 'sucesso' => false, 'mensagem' => getMsgErro( $arquivo['error'] ) ) );

@@ -45,10 +45,10 @@
 						if(retorno.sucesso == true)
 							window.location = 'drive.php';
 						else
-							console.log("MENSAGEM: " + retorno.mensagem);
+							console.log("MENSAGEM DONE: " + retorno.mensagem);
 					})
 					.fail(function(detalhes) {
-						console.log("MENSAGEM: " + detalhes.mensagem);
+						console.log(detalhes);
 					});
 
 					evt.preventDefault();

@@ -59,7 +59,29 @@ if( file_exists($postDir) ) {
 					$parts = explode('_', $htmlName, 2);
 					$date = $parts[0];
 					$name = $parts[1];
-					echo "<li class='file ext_{$ext}'>{$checkbox}<a rel='" . $htmlRel . "'>" . $name . "</a></li>";
+					echo "<li >{$checkbox}
+							<div id='shape'>";
+							
+							if($ext == "bmp" || $ext == "gif" || $ext == "jpg" || $ext == "jpeg" || $ext == "pcx" || $ext == "tif" || $ext == "tiff"){
+								echo"<div id='item'>	
+									<img id='imgPrev' src='". $htmlRel . "' />";
+							}else if($ext == "png"){
+							
+								echo"<div id='item_{$ext}'>	
+									<img id='imgPrev' src='". $htmlRel . "' />";
+
+							}else{
+
+								echo"<div id='item_{$ext}'>";
+
+							}	
+							
+								echo "</div>	
+								<div id='subtitle'>
+									<div id='icon_{$ext}'></div><a id='descSubtitle' rel='" . $htmlRel . "'>" . $name . "</a>
+								</div>
+							</div>
+						</li>";
 				}
 			}
 		}

@@ -45,17 +45,20 @@
 
 				<img src="img/logoLetra.png" id="logo"/>
 
-				<a href=""><img src="img/btnPlus.png" id="add"></a>
+				<form action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
+					
+					<input type="submit" id="add" value="">
+
+					<label class="labelInput">
+			    		<input type="file" name="fileUpload" required>
+			    		<span></span>
+					</label>
+				
+				</form>
 
 			</div>	
 
 			<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
-
-			<!-- TODO COMO CARVALHOS VMS MOSTRAR OS COISOS? -->
-			<form action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
-				<input type="file" name="fileUpload">
-				<input type="submit" value="Enviar">
-			</form>
 
 			<div id='lista-arquivos'>
 				

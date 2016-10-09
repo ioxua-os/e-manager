@@ -32,11 +32,92 @@ body{
 
 #add{
 
-
-	width: 30px;
+	background: rgba(0,0,0,0) url(../img/upIcon.png) ;
+	background-size: 70% 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 40px;
+	height: 40px;
 	float: right;
-	margin-top: 10px;
+	margin-top: 5px;
 	margin-right: 20px;
+	border: solid 0px;
+	-webkit-border-radius: 200px; 
+	-moz-border-radius: 200px;  
+
+}
+
+#add:hover {
+   
+    background: rgba(0,0,0,0.20) url(../img/upIcon.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+	background-position: center;
+
+}
+#add:active {
+   
+    background: rgba(0,0,0,0.30) url(../img/upIcon.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+label.labelInput input[type="file"] {
+
+    position: fixed;
+    top: -1000px;
+
+}
+
+.labelInput {
+
+ 	background: rgba(0,0,0,0) url(../img/clipIcon.png);
+	background-size: 70% 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 40px;
+	height: 40px;
+	float: right;
+	margin-top: 5px;
+	margin-right: 20px;
+	border: solid 0px;  
+	-webkit-border-radius: 200px; 
+	-moz-border-radius: 200px;  
+
+}
+.labelInput:hover {
+   
+    background: rgba(0,0,0,0.20) url(../img/clipIcon.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+	background-position: center;
+
+}
+.labelInput:active {
+   
+    background: rgba(0,0,0,0.30) url(../img/clipIcon.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+	background-position: center;
+
+}
+.labelInput :invalid + span{
+    
+    background: rgba(0,0,0,0.50) url(../img/clipIcon.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+.labelInput :valid + span{
+
+    background: rgba(0,0,0,0.50) url(../img/clipIcon.png);
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+	background-position: center;
 
 }
 
@@ -45,7 +126,7 @@ body{
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #fff;  
+   color: #fff;  http://www.geradordecnpj.org/
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
@@ -60,7 +141,7 @@ body{
 	-webkit-transition: all 0.3s linear;
 	-moz-transition: all 0.3s linear;
 
-	width: 400px;
+	width: 40%;
 	height: 30px;
 	background: #b6b6b6;
 	border: 0px;
@@ -73,7 +154,7 @@ body{
 	-webkit-border-radius: 5px; 
 	-moz-border-radius: 5px; 
 	margin-top: 20px;
-	margin-left: calc(50% - 200px);
+	margin-left: 30%;
 	outline: none;
 	margin-bottom: 20px;
 }
@@ -92,8 +173,9 @@ body{
 
 #lista-arquivos {
 
-	width: 300px;
-	height: 500px;
-	overflow: hidden;
+	width: 100%;
+	position: absolute;
+	display: table-cell;
+	margin-top: 50px;
 
 }
