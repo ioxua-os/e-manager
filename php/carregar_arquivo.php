@@ -32,16 +32,15 @@
 	$nomeInput = 'fileUpload';
 	$extensoesPermitidas = array();
 
-	if(isset($_FILES[$nomeInput])) {
+	if(!empty($_FILES[$nomeInput])) {
 		session_start();
 
-		//$arquivos = $_FILES[$nomeInput];//reArrayFiles($_FILES['$nomeInput']);
+		//$arquivos = reArrayFiles($_FILES['$nomeInput']);
 		$arquivo = $_FILES[$nomeInput];//reArrayFiles($_FILES['$nomeInput']);
 
 		//foreach($arquivos as $arquivo) {
 			$dir = Configuracoes::DIRETORIO_UPLOAD_BASE. $_SESSION['loginusuario']. '/';
 
-		//foreach($arquivos as $arquivo) {
 			if(!is_dir($dir))
 				mkdir($dir, 0777, true);
 
@@ -53,13 +52,15 @@
 
 				move_uploaded_file($arquivo['tmp_name'], $dir. $novoNome);
 
-				echo Configuracoes::criptografar('admin');
+				//echo Configuracoes::criptografar('admin');
+
+				echo json_encode( array('sucesso' => true) )
 
 				//header("Location:../drive.php");
 			}
 			else
-				echo json_encode( array( 'sucesso' => 'false', 'mensagem' => getMsgErro( $arquivo['error'] ) ) );
+				echo json_encode( array( 'sucesso' => false, 'mensagem' => getMsgErro( $arquivo['error'] ) ) );
 		//}
 	}
 	else
-		echo json_encode( array('sucesso' => 'false', 'mensagem' => 'Nenhum arquivo selecionado!') );
+		echo json_encode( array('sucesso' => false, 'mensagem' => 'Nenhum arquivo selecionado!') );

@@ -1,10 +1,12 @@
 <?php
-	session_start();
+	require 'conf.php';
 	require 'conexao_banco.php';
+
+	session_start();
 	$conn = abrirConexao();
 
 	$usuario = $_POST['usuario'];
-	$senha = $_POST['senha'];
+	$senha = Configuracoes::criptografar($_POST['senha']);
 
 	$sql = "SELECT * FROM tbusuario WHERE loginusuario = '". $usuario. "' AND senhausuario = '". $senha. "'";
 	$query = mysqli_query($conn, $sql);
