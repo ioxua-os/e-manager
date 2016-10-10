@@ -126,7 +126,7 @@ label.labelInput input[type="file"] {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #fff;  http://www.geradordecnpj.org/
+   color: #fff;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
@@ -177,5 +177,7 @@ label.labelInput input[type="file"] {
 	position: absolute;
 	display: table-cell;
 	margin-top: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
 
 }

@@ -18,20 +18,77 @@
 		<!-- https://github.com/jqueryfiletree/jqueryfiletree -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="lib/jQueryFileTree.min.js"></script>
+        <script type="text/javascript" src="lib/mordenizr.js"></script>
 
 		<title>Etec drive</title>
 
 		<script>
 			$(document).ready( function() {
-				$("#lista-arquivos").fileTree({
-					root: '<?php print "/ETECDrive/arquivos-upload/". $_SESSION['loginusuario']. "/" ?>',
-					script: 'lib/connectors/jqueryFileTree.php',
-					loadMessage: 'Carregando..',
-					multiFolder: false
-				},
-				function(arquivo) {
-					console.log("CLICOU EM " + arquivo);
-				});
+				var atualizarLista = function() {
+					console.log("RODOU");
+					$("#lista-arquivos").fileTree({
+						root: '<?php print "/ETECDrive/arquivos-upload/". $_SESSION['loginusuario']. "/" ?>',
+						script: 'lib/connectors/jqueryFileTree.php',
+						loadMessage: 'Carregando..',
+						multiFolder: false
+					},
+					function(arquivo) {
+						console.log("CLICOU EM " + arquivo);
+						$.ajax({
+							type: 'POST',
+							url: 'php/salvar_arquivo.php',
+							dataType: 'json',
+							data: {
+								nomeArquivo: arquivo
+							},
+							encode: true
+						})
+						.done(function(retorno) {
+							console.log(retorno);
+							if(retorno.sucesso == true)
+								$("#lista-arquivos").html("");
+							else
+								console.log("MENSAGEM DONE: " + retorno.mensagem);
+						})
+						.fail(function(detalhes) {
+							console.log(detalhes);
+						});
+
+					});
+				};
+
+				$("#uploader").submit( function(evt) {
+					evt.preventDefault();
+
+					var formData = new FormData(this);
+					console.log($(this));
+					$.ajax({
+						type: 'POST',
+						url: 'php/carregar_arquivo.php',
+						dataType: 'json',
+						processData: false,
+						contentType: false,
+						data: formData,
+						encode: true
+					})
+					.done(function(retorno) {
+						console.log(retorno);
+						if(retorno.sucesso == true)
+							$("#lista-arquivos").html("");
+						else
+							console.log("MENSAGEM DONE: " + retorno.mensagem);
+					})
+					.fail(function(detalhes) {
+						console.log(detalhes);
+					});
+				} );
+
+
+				if(!Modernizr.adownload) {
+
+				}
+
+				atualizarLista();
 			} );
 		</script>
 
@@ -45,7 +102,7 @@
 
 				<img src="img/logoLetra.png" id="logo"/>
 
-				<form action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
+				<form id="uploader" action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
 					
 					<input type="submit" id="add" value="">
 

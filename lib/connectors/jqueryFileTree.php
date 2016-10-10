@@ -45,7 +45,9 @@ if( file_exists($postDir) ) {
 
 	if( count($files) > 2 ) { // The 2 accounts for . and ..
 
+
 		echo "<ul class='jqueryFileTree'>";
+
 
 		foreach( $files as $file ) {
 			$htmlRel	= htmlentities($returnDir . $file,ENT_QUOTES);
@@ -54,7 +56,30 @@ if( file_exists($postDir) ) {
 
 			if( file_exists($postDir . $file) && $file != '.' && $file != '..' ) {
 				if( is_dir($postDir . $file) && (!$onlyFiles || $onlyFolders) )
-					echo "<li class='directory collapsed'>{$checkbox}<a rel='" .$htmlRel. "/'>" . $htmlName . "</a></li>";
+					// echo "<li class='directory collapsed'>{$checkbox}
+					echo "<li>{$checkbox}
+							<div id='shapeFolder'>
+							<div id='iconPasta_directory'>{$checkbox} </div>
+							<a id='descFolder' rel='" .$htmlRel. "/'>" . $htmlName . "</a>
+							</div>
+
+						</li>";
+
+			}
+
+		}
+
+		echo "<ul class='jqueryFileTree'>";
+
+		foreach( $files as $file ) {
+			$htmlRel	= htmlentities($returnDir . $file,ENT_QUOTES);
+			$htmlName	= htmlentities($file);
+			$ext		= preg_replace('/^.*\./', '', $file);
+
+			if( file_exists($postDir . $file) && $file != '.' && $file != '..' ) {
+				if( is_dir($postDir . $file) && (!$onlyFiles || $onlyFolders) );
+					
+				
 				else if (!$onlyFolders || $onlyFiles) {
 					$parts = explode('_', $htmlName, 2);
 					$date = $parts[0];
