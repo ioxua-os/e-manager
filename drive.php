@@ -5,7 +5,7 @@
 	<?php 
 		session_start();
 
-		include 'php/conf.php';
+		require 'php/conf.php';
 	?>
 
 	<head>
@@ -24,65 +24,46 @@
 
 		<script>
 			$(document).ready( function() {
-				var atualizarLista = function() {
-					console.log("RODOU");
-					$("#lista-arquivos").fileTree({
-						root: '<?php print "/ETECDrive/arquivos-upload/". $_SESSION['loginusuario']. "/" ?>',
-						script: 'lib/connectors/jqueryFileTree.php',
-						loadMessage: 'Carregando..',
-						multiFolder: false
-					},
-					function(arquivo) {
-						console.log("CLICOU EM " + arquivo);
-						$.ajax({
-							type: 'POST',
-							url: 'php/salvar_arquivo.php',
-							dataType: 'json',
-							data: {
-								nomeArquivo: arquivo
-							},
-							encode: true
-						})
-						.done(function(retorno) {
-							console.log(retorno);
-							if(retorno.sucesso == true)
-								$("#lista-arquivos").html("");
-							else
-								console.log("MENSAGEM DONE: " + retorno.mensagem);
-						})
-						.fail(function(detalhes) {
-							console.log(detalhes);
-						});
-
-					});
-				};
-
-				$("#uploader").submit( function(evt) {
-					evt.preventDefault();
-
+				$("#uploader").submit(function(event) {
+					event.preventDefault();
+					
 					var formData = new FormData(this);
-					console.log($(this));
+					
 					$.ajax({
 						type: 'POST',
 						url: 'php/carregar_arquivo.php',
-						dataType: 'json',
-						processData: false,
-						contentType: false,
 						data: formData,
-						encode: true
+						cache: false,
+						contentType: false,
+						processData: false,
 					})
 					.done(function(retorno) {
+						console.log("SUCESSO");
 						console.log(retorno);
-						if(retorno.sucesso == true)
-							$("#lista-arquivos").html("");
-						else
-							console.log("MENSAGEM DONE: " + retorno.mensagem);
 					})
 					.fail(function(detalhes) {
+						console.log("FALHA");
 						console.log(detalhes);
+					})
+					.always(function(retorno) {
+						console.log("SEMPRE");
+						console.log(retorno);
+						//location.reload(true);
+						atualizarLista();
 					});
-				} );
+				});
 
+				$(".trilha").click(function(trilha) {
+					trilha.preventDefault();
+					var quantidade = 0;
+					$(".trilha").each(function() {
+						quantidade++;
+					});
+					
+					if(trilha.target.getAttribute("posicao") != quantidade) {
+						console.log("ESSE AKI NN EH O ULTIMO");
+					}
+				});
 
 				if(!Modernizr.adownload) {
 
@@ -90,6 +71,47 @@
 
 				atualizarLista();
 			} );
+			
+			function atualizarLista() {
+				console.log("RODOU");
+				$("#lista-arquivos").html("");
+				$("#lista-arquivos").attr('class', '');
+				$("#lista-arquivos").fileTree({
+					root: "<?php print "/ETECDrive/arquivos-upload/". $_SESSION['caminhoatual'] ?>",
+					script: 'lib/connectors/jqueryFileTree.php',
+					loadMessage: 'Carregando..',
+					multiFolder: false
+				})
+				.on('filetreeclicked', function(event, elem) {
+					if(!elem.value.includes('.')) { // É PASTA
+						$.ajax({
+							type: 'POST',
+							url: 'php/navegar.php',
+							data: {
+								caminho: elem.value + '/'
+							}
+						})
+						.always(function() {
+							console.log("CLICOU!");
+							atualizarLista();
+							//location.reload(true);
+						});
+					}
+					else { // ARQUIVO
+						$.ajax({
+							type: 'POST',
+							url: 'php/salvar_arquivo.php',
+							data: {
+								caminho: elem.value + '/'
+							}
+						})
+						.always(function() {
+							console.log("SUCESSO");
+							location.reload(true);
+						});
+					}
+				});
+			}
 		</script>
 
 	</head>
@@ -102,8 +124,14 @@
 
 				<img src="img/logoLetra.png" id="logo"/>
 
-				<form id="uploader" action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
+				<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
+
+				<input type="submit" id="btnNovo" value="Novo" onclick="show()">
+
+				<!-- <form id="uploader" action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
 					
+					<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
+
 					<input type="submit" id="add" value="">
 
 					<label class="labelInput">
@@ -111,11 +139,34 @@
 			    		<span></span>
 					</label>
 				
-				</form>
+				</form> -->
 
 			</div>	
 
-			<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
+			<div id="caminho">
+
+				<?php 
+					$partes = explode('/', $_SESSION['caminhoatual']);
+					$i = 1;
+					foreach($partes as $pasta) {
+						if($pasta != '') {
+							if($pasta == $_SESSION['loginusuario'])
+								print "<a href=\"\" class='trilha' posicao={$i}>Meus Arquivos</a>";
+							else
+								print "<a href=\"\" class='trilha' posicao={$i}>{$pasta}</a>";
+							print "<p class=\"divisor\"> > </p>";
+							$i++;
+						}
+					}
+				?>
+
+			</div>
+
+			<div id="modalItens" id>
+
+
+
+			</div>
 
 			<div id='lista-arquivos'>
 				
@@ -125,5 +176,14 @@
 
 	</body>
 
+	<script type="text/javascript">
+		
+		function show(){
+
+			 document.getElementById("modalItens").focus();
+
+		}
+
+	</script>
 
 </html>

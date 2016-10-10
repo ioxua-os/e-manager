@@ -8,9 +8,10 @@ body{
 #conteudo{
 
 	width: 100%;
+	min-width: 600px;
 	height: 100%;
 	position: absolute;
-
+	text-align: center;
 }
 
 #cabecalho{
@@ -18,16 +19,65 @@ body{
 	width: 100%;
 	height: 50px;
 	background: #0c8af9;
+	text-align: center;
 
 }
 
 #logo{
 
-	height: 40px;
+	height: 80%;
 	float: left;
 	margin-left: 20px;
 	margin-top: 5px;
 
+}
+
+::-webkit-input-placeholder {
+   color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+:-ms-input-placeholder {  
+   color: #fff;  
+}
+
+#txtPesquisa{
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	width: 40%;
+	height: 30px;
+	background: rgba(0,0,0,0.20);
+	border: 0px;
+	font-size: 16px;
+	padding-left: 20px;
+	color: #fff;
+	text-align: center;
+	font-family: Helvetica;
+	font-weight: lighter;	
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	margin-top: 10px;
+	outline: none;
+}
+
+#txtPesquisa:focus{
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	background: rgba(255,255,255,0.50);
+	box-shadow: -1px -1px 1px #0c8af9, 1px 1px 1px rgba(0,0,0,0.30);
+    -webkit-box-shadow: -1px -1px 1px #0c8af9, 1px 1px 1px rgba(0,0,0,0.30);
+    -moz-box-shadow: -1px -1px 1px #0c8af9, 1px 1px 1px rgba(0,0,0,0.30);
+    border: 1px solid rgba(0,0,0,0.30);
+    text-align: left;
 }
 
 #add{
@@ -121,55 +171,108 @@ label.labelInput input[type="file"] {
 
 }
 
-::-webkit-input-placeholder {
-   color: #fff;
-}
+#btnNovo{
 
-:-moz-placeholder { /* Firefox 18- */
-   color: #fff;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
-}
-
-:-ms-input-placeholder {  
-   color: #fff;  
-}
-
-#txtPesquisa{
 	-webkit-transition: all 0.3s linear;
 	-moz-transition: all 0.3s linear;
 
-	width: 40%;
+
+	width: 120px;
 	height: 30px;
-	background: #b6b6b6;
-	border: 0px;
-	font-size: 16px;
-	padding-left: 20px;
-	color: #fff;
-	text-align: center;
+	background: #fff;
+	color: #0c8af9;
+	font-size: 14px;
+	font-weight: bold;
+	border: solid 0px;
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+	float: right;
+	margin-top: 10px;
+	margin-right: 30px; 
+
+}
+
+#btnNovo:hover{
+
+    -webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	box-shadow: 0px 0px 0px, 3px 3px 3px rgba(0,0,0,0.20);
+    -webkit-box-shadow: 0px 0px 0px, 3px 3px 3px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0px 0px 0px, 3px 3px 3px rgba(0,0,0,0.20);
+
+}
+
+#caminho{
+
+	width: 100%;
+	height: 40px;
+	position: relative;
+	overflow: hidden;
+
+}
+
+.trilha{
+
+	color: #3b3b3b;
+	font-size: 18px;
 	font-family: Helvetica;
-	font-weight: lighter;	
+	font-weight: 100;
+	text-decoration: none;
+
+}
+
+.divisor{
+
+	color: #3b3b3b;
+	font-size: 18px;
+	font-family: Helvetica;
+	font-weight: 100;
+	display: inline-block;
+	padding-right: 10px;
+	padding-left: 10px;
+
+}
+
+.trilha:last-of-type {
+	font-weight: bold;
+}
+
+
+
+/*PopUp*/
+
+#modalItens{
+
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+
+	width: 270px;
+	height: 200px;
+	background: #fff;
 	-webkit-border-radius: 5px; 
 	-moz-border-radius: 5px; 
-	margin-top: 20px;
-	margin-left: 30%;
-	outline: none;
-	margin-bottom: 20px;
+	float: right;
+	margin-top: -5px;
+	margin-right: 20px;
+	position: relative;
+	z-index: 100;
+	display: none;
+
+	box-shadow: 0px 0px 0px rgba(0,0,0,0.30), 1px 1px 1px rgba(0,0,0,0.30);
+    -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.30), 1px 1px 1px rgba(0,0,0,0.30);
+    -moz-box-shadow: 0px 0px 0px, 1px 1px 1px rgba(0,0,0,0.30);
+
 }
 
-#txtPesquisa:focus{
-	-webkit-transition: all 0.3s linear;
-	-moz-transition: all 0.3s linear;
+#modalItens:focus{
 
-	box-shadow: -1px -1px 1px #0c8af9, 1px 1px 1px #0c8af9;
-    -webkit-box-shadow: -1px -1px 1px #0c8af9, 1px 1px 1px #0c8af9;
-    -moz-box-shadow: -1px -1px 1px #0c8af9, 1px 1px 1px #0c8af9;
-    border: 1px solid #0c8af9;
+	/*display: block;*/
 
-    text-align: left;
+	background: #000;
 }
+
+/*fim popUp*/
 
 #lista-arquivos {
 
@@ -177,7 +280,6 @@ label.labelInput input[type="file"] {
 	position: absolute;
 	display: table-cell;
 	margin-top: 50px;
-	padding-left: 20px;
-	padding-right: 20px;
+	z-index: 0;
 
 }

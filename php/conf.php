@@ -25,6 +25,16 @@
 			'SE' => 'America/Maceio',       'SP' => 'America/Sao_Paulo',
 			'TO' => 'America/Araguaia',    
 		);
+		
+		const MIMES = array(
+			'exe' => 'application/octet-stream',		'doc' => 'application/msword',
+			'php' => 'text/plain',						'txt' => 'text/plain',
+			'html' => 'text/html', 						'htm' => 'text/html',
+			'pdf' => 'application/pdf',					'xls' => 'application/vnd.ms-excel',
+			'ppt' => 'application/vnd.ms-powerpoint',	'zip' => 'application/zip',
+			'gif' => 'image/gif',						'png' => 'image/png',
+			'jpeg' => 'image/jpg',						'jpg' => 'image/jpg',
+		);
 
 		public static function criptografar($valor) {
 			if(self::CRIPTOGRAFIA === '')

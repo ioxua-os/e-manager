@@ -17,6 +17,7 @@
 	else {
 		$_SESSION['codusuario'] = $resultado['codusuario'];
 		$_SESSION['loginusuario'] = $resultado['loginusuario'];
+		$_SESSION['caminhoatual'] = $resultado['loginusuario']. "/";
 		echo json_encode( array('sucesso' => true) );
 		//header("Location:../home.html");
 	}	
