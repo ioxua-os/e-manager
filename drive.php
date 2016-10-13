@@ -16,9 +16,10 @@
 		<link rel="shortcut icon" href="img/icone.png" >
 
 		<!-- https://github.com/jqueryfiletree/jqueryfiletree -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+        <script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="lib/jQueryFileTree.min.js"></script>
-        <script type="text/javascript" src="lib/mordenizr.js"></script>
+        <script type="text/javascript" src="lib/modernizr.js"></script>
 
 		<title>Etec drive</title>
 
@@ -111,6 +112,17 @@
 						});
 					}
 				});
+
+				$("#btnNovo").click(function(evt) {
+					$("#modalItens").show();
+					$("#modalItens").focus();
+				});
+
+				//$("#modalItens").focusout(function(evt) {
+				$(document).not("#modalItens").focusout(function(evt) {
+					console.log("SAIU");
+					$("#modalItens").hide();
+				})
 			}
 		</script>
 
@@ -126,7 +138,7 @@
 
 				<input name='pesquisa' type='text' placeholder='Buscar pasta' id='txtPesquisa' />
 
-				<input type="submit" id="btnNovo" value="Novo" onclick="show()">
+				<input type="submit" id="btnNovo" value="Novo">
 
 				<!-- <form id="uploader" action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
 					
@@ -154,7 +166,7 @@
 								print "<a href=\"\" class='trilha' posicao={$i}>Meus Arquivos</a>";
 							else
 								print "<a href=\"\" class='trilha' posicao={$i}>{$pasta}</a>";
-							print "<p class=\"divisor\"> > </p>";
+							print "<div class=\"divisor\"></div>";
 							$i++;
 						}
 					}
@@ -162,9 +174,30 @@
 
 			</div>
 
-			<div id="modalItens" id>
+			<div id="modalItens">
 
+				<div id="addPasta">
+					<img id="imgAddPasta" src="img/iconPastaPlus.png"/>
+					<p>Nova pasta</p>
+				</div>
 
+				<hr id="divPasta"/>
+
+				<div id="upPasta">
+					<img id="imgUpPasta" src="img/iconPastaUp.png"/>
+					<p>Upload de pasta</p>
+				</div>
+
+				<div id="upArquivo" onclick="openFiles()">
+					<img id="imgUpArquivo" src="img/iconArquivoUp.png"/>
+					<form id="uploader" action="php/carregar_arquivo.php" method="POST" enctype="multipart/form-data">
+					<label class="labelInput">
+			    		<input type="file" id="upFiles" name="fileUpload" required>
+			    		<span></span>
+					</label>
+					</form>
+					<p>Upload de arquivo</p>
+				</div>
 
 			</div>
 
@@ -174,16 +207,16 @@
 
 		</div>
 
+		<script type="text/javascript">
+			
+			function openFiles(){
+
+				$("upFiles").submit();
+
+			}
+
+		</script>
+
 	</body>
-
-	<script type="text/javascript">
-		
-		function show(){
-
-			 document.getElementById("modalItens").focus();
-
-		}
-
-	</script>
 
 </html>

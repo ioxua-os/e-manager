@@ -123,18 +123,15 @@ label.labelInput input[type="file"] {
 
 .labelInput {
 
- 	background: rgba(0,0,0,0) url(../img/clipIcon.png);
+ 	background: #000;
 	background-size: 70% 70%;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 40px;
-	height: 40px;
-	float: right;
-	margin-top: 5px;
-	margin-right: 20px;
+	float: left;
 	border: solid 0px;  
 	-webkit-border-radius: 200px; 
-	-moz-border-radius: 200px;  
+	-moz-border-radius: 200px; 
+	display: none; 
 
 }
 .labelInput:hover {
@@ -209,33 +206,46 @@ label.labelInput input[type="file"] {
 	height: 40px;
 	position: relative;
 	overflow: hidden;
+	padding-top: 20px;
 
 }
 
 .trilha{
 
-	color: #3b3b3b;
+	color: #878787;
 	font-size: 18px;
 	font-family: Helvetica;
 	font-weight: 100;
 	text-decoration: none;
+	margin-top: 20px;
+
+}
+
+.trilha:last-of-type {
+
+	color: #464646;
+	font-weight: bold;
 
 }
 
 .divisor{
 
-	color: #3b3b3b;
-	font-size: 18px;
-	font-family: Helvetica;
-	font-weight: 100;
+	width: 18px;
+	height: 20px;
+	background-image: url(../img/iconDivisor.png);
+	background-repeat: no-repeat;
+	background-position: bottom; 
+	background-size: 80%;
 	display: inline-block;
-	padding-right: 10px;
-	padding-left: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
 
 }
 
-.trilha:last-of-type {
-	font-weight: bold;
+.divisor:last-of-type{
+
+	display: none;
+
 }
 
 
@@ -248,16 +258,17 @@ label.labelInput input[type="file"] {
 	-moz-transition: all 0.3s linear;
 
 	width: 270px;
-	height: 200px;
+	height: 170px;
 	background: #fff;
 	-webkit-border-radius: 5px; 
 	-moz-border-radius: 5px; 
 	float: right;
-	margin-top: -5px;
+	margin-top: -68px;
 	margin-right: 20px;
 	position: relative;
 	z-index: 100;
 	display: none;
+	padding-top: 15px;
 
 	box-shadow: 0px 0px 0px rgba(0,0,0,0.30), 1px 1px 1px rgba(0,0,0,0.30);
     -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.30), 1px 1px 1px rgba(0,0,0,0.30);
@@ -265,11 +276,51 @@ label.labelInput input[type="file"] {
 
 }
 
-#modalItens:focus{
+#addPasta, #upPasta, #upArquivo{
 
-	/*display: block;*/
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	padding-top: 5px;
 
-	background: #000;
+}
+
+#addPasta:hover, #upPasta:hover, #upArquivo:hover{
+
+	background: #cfcfcf;
+
+}
+
+#imgAddPasta, #imgUpPasta, #imgUpArquivo{
+
+	height: 80%;
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+
+}
+
+#addPasta p, #upPasta p, #upArquivo p{
+
+	color: #000;
+	font-family: Helvetica;
+	font-size: 16px;
+	font-weight: 100;
+	margin-top: 10px;
+	margin-left: 20px;
+	float: left;
+
+}
+
+#divPasta{
+
+	width: 90%;
+	height: 1px;
+	background: #cdcdcd;
+	border: solid 0;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+
 }
 
 /*fim popUp*/
